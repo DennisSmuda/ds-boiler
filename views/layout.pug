@@ -1,0 +1,29 @@
+block variables
+
+doctype html
+html(class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "" lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
+    base(href="/")
+    title=meta.title
+    meta(name="description" content=meta.description)
+    
+    link(href="https://unpkg.com/sanitize.css" rel="stylesheet")
+    link(href="main.css" rel="stylesheet")
+    //- INLINE CSS
+    //- style
+    //-   include ../public/main.css
+  
+  body
+    //- Navigation
+    include ./partials/navigation 
+
+    //- Main Content
+    main.content#content(data-template=template)
+      block content
+  
+    //- Scripts
+    script(src="main.js")
+
